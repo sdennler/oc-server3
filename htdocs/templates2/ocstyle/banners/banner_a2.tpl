@@ -1,5 +1,16 @@
 {* Donation Banner Template *}
-{literal}<div id="oc-banner-a" role="banner" aria-label="Spendenaufruf opencaching.de" style="display:none">
+{literal}
+<style id="oc-banner-layout-fix">
+    body.oc-has-banner div#langstripe {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+    }
+    body.oc-has-banner .page-container-1 {
+        margin-top: 0 !important;
+    }
+</style>
+<div id="oc-banner-a" role="banner" aria-label="Spendenaufruf opencaching.de">
     <style>
         #oc-banner-a {
             --oc-banner-bg: #8B4513;
@@ -8,23 +19,23 @@
             --oc-banner-btn-text: #ffffff;
             --oc-banner-close-color: rgba(255,255,255,0.85);
 
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 9999;
+            position: relative;
+            z-index: 6;
             background-color: var(--oc-banner-bg);
             color: var(--oc-banner-text);
             font-family: verdana, arial, sans-serif;
             font-size: 14px;
             border-bottom: 2px solid #654321;
             box-sizing: border-box;
+            overflow: hidden;
         }
 
         #oc-banner-a.oc-banner-dismissing {
-            transition: opacity 200ms ease, transform 200ms ease;
+            transition: opacity 200ms ease, max-height 200ms ease;
             opacity: 0;
-            transform: translateY(-100%);
+            max-height: 0;
+            border-bottom-width: 0;
+            padding: 0;
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -110,9 +121,7 @@
 
     <div class="oc-banner-a__inner">
     <span class="oc-banner-a__text">
-      <!-- DE -->
       opencaching.de lebt von eurer Unterstützung. Bitte spendet!
-        <!-- EN: opencaching.de lives on your support. Please donate! -->
     </span>
         <a
             class="oc-banner-a__cta"
@@ -122,7 +131,7 @@
             rel="noopener noreferrer"
             aria-label="Jetzt spenden — opencaching.de unterstützen"
         >
-            <!-- DE -->Jetzt spenden<!-- EN: Donate now -->
+            Jetzt spenden
         </a>
     </div>
 
@@ -139,11 +148,10 @@
         'use strict';
 
         const DONATION_URL = 'https://www.opencaching.de/articles.php?page=donations';
-        const DISMISS_TIME = 2 * 60 * 1000; // * 24 * 60 * 60 * 1000
+        const DISMISS_TIME = 2 * 10 * 1000;
         const STORAGE_KEY  = 'oc_banner_dismissed';
         const BANNER_ID    = 'oc-banner-a';
 
-        // Guard: only initialise once even if snippet is pasted twice
         if (window.__ocBannerAInit) return;
         window.__ocBannerAInit = true;
 
@@ -155,7 +163,6 @@
                 const expiry = dismissedAt + DISMISS_TIME;
                 return Date.now() < expiry;
             } catch (_) {
-                // localStorage unavailable (private browsing / quota) — show banner
                 return false;
             }
         }
@@ -163,15 +170,18 @@
         function setDismissed() {
             try {
                 localStorage.setItem(STORAGE_KEY, new Date().toISOString());
-            } catch (_) {
-                // Ignore storage errors
-            }
+            } catch (_) {}
+        }
+
+        function removeBannerLayout() {
+            document.body.classList.remove('oc-has-banner');
         }
 
         function dismissBanner(banner, restoreFocusTo) {
             const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if (prefersReduced) {
                 banner.style.display = 'none';
+                removeBannerLayout();
                 setDismissed();
                 if (restoreFocusTo && restoreFocusTo.focus) restoreFocusTo.focus();
                 return;
@@ -182,16 +192,28 @@
                 if (done) return;
                 done = true;
                 banner.style.display = 'none';
+                removeBannerLayout();
                 setDismissed();
                 if (restoreFocusTo && restoreFocusTo.focus) restoreFocusTo.focus();
             }
             banner.addEventListener('transitionend', finish, { once: true });
-            // Fallback: if transitionend never fires (e.g. display:none blocks transition)
             setTimeout(finish, 400);
         }
 
+        if (!isDismissed()) {
+            document.body.classList.add('oc-has-banner');
+        } else {
+            var b = document.getElementById(BANNER_ID);
+            if (b) b.style.display = 'none';
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
-            if (isDismissed()) return;
+            if (isDismissed()) {
+                var b = document.getElementById(BANNER_ID);
+                if (b) b.style.display = 'none';
+                removeBannerLayout();
+                return;
+            }
 
             var banner    = document.getElementById(BANNER_ID);
             var closeBtn  = document.getElementById('oc-banner-a__close-btn');
@@ -199,11 +221,7 @@
 
             if (!banner) return;
 
-            // Set the real donation URL
             ctaLink.href = DONATION_URL;
-
-            // Show banner
-            banner.style.display = 'block';
 
             var prevFocus = document.activeElement;
 
@@ -213,4 +231,3 @@
         });
     }());
 </script>{/literal}
-

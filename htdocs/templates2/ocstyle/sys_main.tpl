@@ -120,11 +120,10 @@
 {else}
     {assign var="banner_to_load" value="a"}
 {/if}
-{include file="banners/banner_`$banner_to_load`.tpl"}
-
 
 {if $opt.template.popup!=true}
 <div id="overall">
+    {include file="banners/banner_`$banner_to_load`.tpl"}
     <div id="langstripe">
 
         {* <!-- Navigation Level 1 --> *}

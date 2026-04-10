@@ -1,6 +1,10 @@
 {literal}
+<style id="oc-banner-layout-fix">
+    body.oc-has-banner div#langstripe { position: relative !important; top: auto !important; left: auto !important; }
+    body.oc-has-banner .page-container-1 { margin-top: 0 !important; }
+</style>
 
-    <div id="oc-banner-b2" role="banner" aria-label="Spendenaufruf opencaching.de" style="display:none">
+    <div id="oc-banner-b2" role="banner" aria-label="Spendenaufruf opencaching.de">
         <style>
             #oc-banner-b2 {
                 --oc-banner-bg: #e8eff2;
@@ -11,29 +15,24 @@
                 --oc-banner-border: #5890a8;
                 --oc-banner-close-color: #666666;
 
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                z-index: 9999;
+                position: relative;
+                z-index: 6;
                 background-color: var(--oc-banner-bg);
                 color: var(--oc-banner-text);
                 font-family: verdana, arial, sans-serif;
                 font-size: 14px;
                 border-bottom: 3px solid var(--oc-banner-border);
                 box-sizing: border-box;
+                overflow: hidden;
             }
 
             #oc-banner-b2.oc-banner-dismissing {
-                transition: opacity 200ms ease, transform 200ms ease;
-                opacity: 0;
-                transform: translateY(-100%);
+                transition: opacity 200ms ease, max-height 200ms ease;
+                opacity: 0; max-height: 0; border-bottom-width: 0; padding: 0;
             }
 
             @media (prefers-reduced-motion: reduce) {
-                #oc-banner-b2.oc-banner-dismissing {
-                    transition: none;
-                }
+                #oc-banner-b2.oc-banner-dismissing { transition: none; }
             }
 
             #oc-banner-b2 .oc-banner-b__inner {
@@ -194,7 +193,6 @@
     <script>
         (function () {
             'use strict';
-
             const DONATION_URL = 'https://www.opencaching.de/articles.php?page=donations';
             const DISMISS_DAYS = 7;
             const STORAGE_KEY  = 'oc_banner_dismissed';
@@ -203,62 +201,30 @@
             if (window.__ocBannerB2Init) return;
             window.__ocBannerB2Init = true;
 
-            function isDismissed() {
-                try {
-                    const raw = localStorage.getItem(STORAGE_KEY);
-                    if (!raw) return false;
-                    const dismissedAt = new Date(raw).getTime();
-                    const expiry = dismissedAt + 1 * 60 * 1000;
-                    return Date.now() < expiry;
-                } catch (_) {
-                    return false;
-                }
-            }
-
-            function setDismissed() {
-                try {
-                    localStorage.setItem(STORAGE_KEY, new Date().toISOString());
-                } catch (_) {}
-            }
-
+            function isDismissed() { try { const raw = localStorage.getItem(STORAGE_KEY); if (!raw) return false; return Date.now() < new Date(raw).getTime() + 1 * 60 * 1000; } catch (_) { return false; } }
+            function setDismissed() { try { localStorage.setItem(STORAGE_KEY, new Date().toISOString()); } catch (_) {} }
+            function removeBannerLayout() { document.body.classList.remove('oc-has-banner'); }
             function dismissBanner(banner, restoreFocusTo) {
                 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                if (prefersReduced) {
-                    banner.style.display = 'none';
-                    setDismissed();
-                    if (restoreFocusTo && restoreFocusTo.focus) restoreFocusTo.focus();
-                    return;
-                }
+                if (prefersReduced) { banner.style.display = 'none'; removeBannerLayout(); setDismissed(); if (restoreFocusTo && restoreFocusTo.focus) restoreFocusTo.focus(); return; }
                 banner.classList.add('oc-banner-dismissing');
                 var done = false;
-                function finish() {
-                    if (done) return;
-                    done = true;
-                    banner.style.display = 'none';
-                    setDismissed();
-                    if (restoreFocusTo && restoreFocusTo.focus) restoreFocusTo.focus();
-                }
-                banner.addEventListener('transitionend', finish, { once: true });
-                setTimeout(finish, 400);
+                function finish() { if (done) return; done = true; banner.style.display = 'none'; removeBannerLayout(); setDismissed(); if (restoreFocusTo && restoreFocusTo.focus) restoreFocusTo.focus(); }
+                banner.addEventListener('transitionend', finish, { once: true }); setTimeout(finish, 400);
             }
 
+            if (!isDismissed()) { document.body.classList.add('oc-has-banner'); }
+            else { var b = document.getElementById(BANNER_ID); if (b) b.style.display = 'none'; }
+
             document.addEventListener('DOMContentLoaded', function () {
-                if (isDismissed()) return;
-
-                var banner   = document.getElementById(BANNER_ID);
+                if (isDismissed()) { var b = document.getElementById(BANNER_ID); if (b) b.style.display = 'none'; removeBannerLayout(); return; }
+                var banner = document.getElementById(BANNER_ID);
                 var closeBtn = document.getElementById('oc-banner-b2__close-btn');
-                var ctaLink  = document.getElementById('oc-banner-b2__cta-link');
-
+                var ctaLink = document.getElementById('oc-banner-b2__cta-link');
                 if (!banner) return;
-
                 ctaLink.href = DONATION_URL;
-                banner.style.display = 'block';
-
                 var prevFocus = document.activeElement;
-
-                closeBtn.addEventListener('click', function () {
-                    dismissBanner(banner, prevFocus);
-                });
+                closeBtn.addEventListener('click', function () { dismissBanner(banner, prevFocus); });
             });
         }());
     </script>
