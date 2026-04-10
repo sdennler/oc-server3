@@ -110,6 +110,19 @@
         {foreach from=$opt.page.body_unload item=unloadItem name=bodyunload}{if $smarty.foreach.bodyunload.first} onunload="{/if}{$unloadItem};{if $smarty.foreach.bodyunload.last}"{/if}{/foreach}
         class="{if $opt.template.popup!=false}popup{/if}">
 
+
+{assign var="requested_banner" value=$smarty.get.banner|default:"a"}
+{assign var="banner_clean" value=$requested_banner|replace:'/':''}
+{assign var="banner_clean" value=$banner_clean|replace:'.':''}
+{assign var="banner_clean" value=$banner_clean|replace:'\\':''}
+{if $banner_clean}
+    {assign var="banner_to_load" value=$banner_clean}
+{else}
+    {assign var="banner_to_load" value="a"}
+{/if}
+{include file="banners/banner_`$banner_to_load`.tpl"}
+
+
 {if $opt.template.popup!=true}
 <div id="overall">
     <div id="langstripe">
