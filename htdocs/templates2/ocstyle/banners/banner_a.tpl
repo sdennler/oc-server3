@@ -150,7 +150,7 @@
     (function () {
         'use strict';
 
-        const DONATION_URL = 'https://www.opencaching.de/articles.php?page=donations';
+        const DONATION_URL = '/articles.php?page=donations';
         const DISMISS_TIME = 1 * 10 * 1000;
         const STORAGE_KEY  = 'oc_banner_dismissed';
         const BANNER_ID    = 'oc-banner-a';

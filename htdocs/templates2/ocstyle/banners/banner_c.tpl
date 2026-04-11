@@ -254,7 +254,7 @@
         (function () {
             'use strict';
 
-            const DONATION_URL = 'https://www.opencaching.de/articles.php?page=donations';
+            const DONATION_URL = '/articles.php?page=donations';
             const DISMISS_DAYS = 1;
             const STORAGE_KEY  = 'oc_banner_dismissed';
             const OVERLAY_ID   = 'oc-banner-c-overlay';
