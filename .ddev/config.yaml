@@ -205,7 +205,7 @@ hooks:
 # The top-level domain used for project URLs
 # The default "ddev.site" allows DNS lookup via a wildcard
 
-# share_default_provider: ngrok
+share_default_provider: ngrok
 # The default share provider to use for "ddev share"
 # Defaults to global configuration, usually "ngrok"
 # Can be "ngrok" or "cloudflared" or the name of a custom provider from .ddev/share-providers/
@@ -213,6 +213,7 @@ hooks:
 # share_provider_args: --basic-auth username:pass1234
 # Provide extra flags to the share provider script
 # See https://docs.ddev.com/en/stable/users/configuration/config/#share_provider_args
+share_provider_args: --domain octundem3678.ngrok-free.app
 
 # disable_settings_management: false
 # If true, DDEV will not create CMS-specific settings files like

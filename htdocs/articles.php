@@ -56,7 +56,8 @@ if ($article === '') {
 $tpl->name = 'articles';
 
 $tpl->caching = true;
-$tpl->cache_id = 'articles|' . $language . '|' . $article;
+$bannerParam = isset($_GET['banner']) ? preg_replace('/[^a-z0-9\-]/', '', $_GET['banner']) : '';
+$tpl->cache_id = 'articles|' . $language . '|' . $article . ($bannerParam !== '' ? '|banner_' . $bannerParam : '');
 $tpl->cache_lifetime = 43200;
 
 /** @var Connection $connection */

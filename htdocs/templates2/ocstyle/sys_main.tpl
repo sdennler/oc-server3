@@ -296,14 +296,11 @@
                             src="resource2/{$opt.template.style}/images/nodes/oc-us.png" width="100" height="22"/></a>
             </div>
 
-            {* <!-- Paypalbutton --> *}
+            {* <!-- Donation button --> *}
             {if $opt.page.showdonations}
                 <p class="sidebar-maintitle">{t}Donations{/t}</p>
                 <div style="margin-top:16px; width:100%; text-align:center;">
-                    <a href="articles.php?page=donations">
-                        <img src="resource2/{$opt.template.style}/images/misc/donate.gif" alt="{t}Donations{/t}"
-                             style="border:0px;"/>
-                    </a><br/>
+                    {nocache}{donation_icon}{/nocache}<br/>
                     &nbsp;
                 </div>
             {/if}

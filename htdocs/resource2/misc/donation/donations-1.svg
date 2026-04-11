@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 58.947197 75.751528"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="donations-1.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   width="58.947197"
+   height="75.751526"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="13.302446"
+     inkscape:cx="19.470103"
+     inkscape:cy="44.390331"
+     inkscape:window-width="2560"
+     inkscape:window-height="1412"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9" />
+  <title
+     id="title1">donations</title>
+  <g
+     id="donations"
+     transform="translate(-4.0088048,-2.97)">
+    <circle
+       cx="35.5"
+       cy="33.5"
+       r="21.5"
+       style="fill:#e5efef"
+       id="circle1" />
+    <circle
+       cx="59"
+       cy="42"
+       r="1"
+       style="fill:#4c241d"
+       id="circle2" />
+    <circle
+       cx="45"
+       cy="38"
+       r="1"
+       style="fill:#4c241d"
+       id="circle3" />
+    <circle
+       cx="12"
+       cy="40"
+       r="1"
+       style="fill:#4c241d"
+       id="circle4" />
+    <path
+       d="m 9.956,31.338 0.159,0.018 c 5.748,0.638 8.806,-3.173 13.841,-6.018 L 40.41,19.853 a 2.261,2.261 0 0 0 1.546,-2.144 v 0 a 2.26,2.26 0 0 0 -2.368,-2.258 l -18.632,0.887 z"
+       style="fill:#b5a19c;stroke:#4c241d;stroke-width:2px;stroke-linecap:round;stroke-linejoin:round"
+       id="path4" />
+    <circle
+       cx="26"
+       cy="30"
+       r="11"
+       style="fill:#ffce56;stroke:#4c241d;stroke-width:2px;stroke-linecap:round;stroke-linejoin:round"
+       id="circle5" />
+    <circle
+       cx="26"
+       cy="30"
+       r="7"
+       style="fill:none;stroke:#fc8c29;stroke-width:2px;stroke-linecap:round;stroke-linejoin:round"
+       id="circle6" />
+    <path
+       d="m 51.956,3.97 c 0,0 -4.545,4.414 -5.656,4.938 A 11.227,11.227 0 0 1 41.531,9.97 H 24.878 a 9.827,9.827 0 0 0 -7.412,3.375 L 5.715,26.845 A 2.908,2.908 0 0 0 6.065,31 3.008,3.008 0 0 0 10.138,30.622 L 21.082,18.871 a 9.39,9.39 0 0 1 6.871,-2.991 h 5.436 a 2.6,2.6 0 0 1 2.6,2.6 v 0 a 2.6,2.6 0 0 1 -2.6,2.6 h -5.826 a 6.632,6.632 0 0 0 -2.637,0.513 C 20.593,23.465 22.211,28 25.335,28 h 19.309 a 12.535,12.535 0 0 0 8.864,-3.672 l 3.741,-5.741 4.707,-2.707"
+       style="fill:#e7d1c4;stroke:#4c241d;stroke-width:2px;stroke-linecap:round;stroke-linejoin:round"
+       id="path6" />
+    <polyline
+       points="6 61 16 45 49 45 59 61"
+       style="fill:#bf7e68;stroke:#4c241d;stroke-width:2px;stroke-linecap:round;stroke-linejoin:round"
+       id="polyline6" />
+    <rect
+       x="22"
+       y="51"
+       width="21"
+       height="3"
+       rx="1.5"
+       ry="1.5"
+       style="fill:#6b4f5b;stroke:#4c241d;stroke-width:2px;stroke-linecap:round;stroke-linejoin:round"
+       id="rect6" />
+    <line
+       x1="55"
+       y1="30"
+       x2="55"
+       y2="34"
+       style="fill:none;stroke:#4c241d;stroke-width:2px;stroke-linecap:round;stroke-linejoin:round"
+       id="line6" />
+    <line
+       x1="53"
+       y1="32"
+       x2="57"
+       y2="32"
+       style="fill:none;stroke:#4c241d;stroke-width:2px;stroke-linecap:round;stroke-linejoin:round"
+       id="line7" />
+    <line
+       x1="10"
+       y1="9"
+       x2="10"
+       y2="13"
+       style="fill:none;stroke:#4c241d;stroke-width:2px;stroke-linecap:round;stroke-linejoin:round"
+       id="line8" />
+    <line
+       x1="8"
+       y1="11"
+       x2="12"
+       y2="11"
+       style="fill:none;stroke:#4c241d;stroke-width:2px;stroke-linecap:round;stroke-linejoin:round"
+       id="line9" />
+  </g>
+  <metadata
+     id="metadata9">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>donations</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Andale Mono';-inkscape-font-specification:'Andale Mono';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+     x="3.1958206"
+     y="73.337463"
+     id="text1"><tspan
+       sodipodi:role="line"
+       id="tspan1"
+       x="3.1958206"
+       y="73.337463"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Andale Mono';-inkscape-font-specification:'Andale Mono';fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1">Spenden</tspan></text>
+</svg>

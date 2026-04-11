@@ -11,6 +11,9 @@
 
             <p>Mit Eurer freundlichen Spende sorgt Ihr vor allem daf&uuml;r, dass wir das Webhosting der Opencaching-Angebote finanzieren k&ouml;nnen. Details zur Verwendung finden Ihr weiter unten.</p>
 
+            <div style="float: right; margin-right: 30px;">
+                <img src="resource2/misc/donation/globi_danke.png" width="320" height="316" alt="Danke!" />
+            </div>
             <h1>Per &Uuml;berweisung spenden:</h1>
             <p>Bank: Volksbank Heiden<br />
             Kontoinhaber: Opencaching Deutschland e.V.<br />
@@ -20,4 +23,7 @@
             <h1>Per PayPal spenden:</h1>
 
             <p>Spenden per Paypal ist derzeit nicht möglich.</p>
+
+            {banner_list}
     </div>
+
