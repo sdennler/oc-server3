@@ -46,9 +46,10 @@
             }
 
             #oc-banner-b2 .oc-banner-b__icon {
-                flex: 0 0 52px;
+                flex: 0 0 auto;
                 width: 52px;
                 height: 52px;
+                object-fit: contain;
             }
 
             #oc-banner-b2 .oc-banner-b__copy {
@@ -134,28 +135,12 @@
         </style>
 
         <div class="oc-banner-b__inner">
-            <!-- SVG: two person-silhouettes with a geocache map-pin between them -->
-            <svg
+            <img
                 class="oc-banner-b__icon"
+                src="/resource2/misc/donation/globi_box_smal.png"
+                alt=""
                 aria-hidden="true"
-                focusable="false"
-                viewBox="0 0 52 52"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
             >
-                <!-- Background circle -->
-                <circle cx="26" cy="26" r="24" fill="#3a6d8f" opacity="0.10"/>
-                <circle cx="26" cy="26" r="24" stroke="#3a6d8f" stroke-width="2" fill="none"/>
-                <!-- Left person silhouette -->
-                <circle cx="16" cy="17" r="5" fill="#3a6d8f" opacity="0.75"/>
-                <path d="M9 34 C9 27 23 27 23 34" stroke="#3a6d8f" stroke-width="2" fill="none" stroke-linecap="round"/>
-                <!-- Right person silhouette -->
-                <circle cx="36" cy="17" r="5" fill="#3a6d8f" opacity="0.75"/>
-                <path d="M29 34 C29 27 43 27 43 34" stroke="#3a6d8f" stroke-width="2" fill="none" stroke-linecap="round"/>
-                <!-- Map pin / geocache in the middle -->
-                <path d="M26 22 C23.2 22 21 24.2 21 27 C21 30.8 26 37 26 37 C26 37 31 30.8 31 27 C31 24.2 28.8 22 26 22 Z" fill="#3a6d8f"/>
-                <circle cx="26" cy="27" r="2.5" fill="#ffffff"/>
-            </svg>
 
             <div class="oc-banner-b__copy">
                 <p class="oc-banner-b__headline">
